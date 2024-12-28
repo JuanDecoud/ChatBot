@@ -1,13 +1,31 @@
 import React, { useEffect, useState } from "react";
 import LoadingButton from "../../shared/loading-button/LoadingButton";
 import Messenger from "../../interfaces/Messenger";
-
+import MessengerService from "../../services/messenger.service";
 
 const ChatBot: React.FC = ()=>{
-    const [isLoading,setLoading]=useState<boolean>(false)
 
-    const [message,setMessage]= useState<string>("")
+    const [isLoading,setLoading]=useState<boolean>(false)
+    const [message, setMessage]= useState<Messenger>({sender:"" , message:""})
+    const [input,setValue] = useState<string>("")
     const [chatHistory, setHistory] = useState<Messenger[]>([])
+    const messengerService = new MessengerService()
+
+    const handlerSubmit : React.FormEventHandler = async (e: React.FormEvent)=>{
+        e.preventDefault();
+        
+        setLoading(true)
+        const message = {sender:"user", message:input} as Messenger
+        setMessage(message)
+        setHistory(prevHistory=> [...prevHistory,message])
+        const response = await messengerService.sendMessage(message);
+        if('error' in response){
+            setLoading(false)
+        }
+        else{
+            setLoading(false)
+        }       
+    }
 
     useEffect(()=>{
         setHistory([{sender:"Bot" , message:"Bienvenido, soy tu asistente virtual, ¿En que puedo ayudarte?."}])
@@ -23,24 +41,29 @@ const ChatBot: React.FC = ()=>{
                     </div>
                 </div>
                 <div className ="col-xxl-12"  >
-                    <div className="container-fluid w-100 border border-1 p-2"   style={{ height: "400px" }} >
-                       {
-                            chatHistory.map(
-                                (msg,index)=>(
-                                    <div key={index} className={`p-2 shadow shadow-s rounded my-1
-                                    ${msg.sender==="Bot"? "bg-warning ": "bg-body"} `}
-                                    >
-                                        {msg.sender}:    {msg.message}
-                                    </div>
+                    <div className="col-xxl-12">
+                        <div className="container-fluid w-100 border border-1 p-2"   style={{ height: "400px" }} >
+                        {
+                                chatHistory.map(
+                                    (msg,index)=>(
+                                        <div key={index} className={`p-2 shadow shadow-s rounded my-1
+                                        ${msg.sender==="Bot"? "bg-warning ": "bg-body"} `}
+                                        >
+                                            {msg.sender}:    {msg.message}
+                                        </div>
+                                    )
                                 )
-                            )
-                       }
+                        }
+                        </div>
                     </div>
                 </div>
+                <form className ="col-xxl-12" onSubmit={handlerSubmit}>
+                    <textarea name="message" className="form-control mt-2" aria-label="With textarea" style={{ height: "85px" }} placeholder="Escribe tu consulta." required onChange={(e)=>setValue(e.target.value)}></textarea>
+                    <LoadingButton text="Enviar" loading={isLoading} className="btn btn-primary btn-lg mt-2"></LoadingButton>
+                </form>
             </div>
-       
-            <textarea className="form-control mt-2" aria-label="With textarea" style={{ height: "85px" }} placeholder="Escribe tu consulta."></textarea>
-            <LoadingButton text="Enviar" loading={isLoading} className="btn btn-primary btn-lg mt-2" ></LoadingButton>
+          
+
           
         </div>
     )

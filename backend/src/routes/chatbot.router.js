@@ -7,14 +7,16 @@ const chatRouter = Router()
 chatRouter.post ("/botReponse",async (req,res)=>{
     try {
         const question = req.body
+        console.log(question)
         const iaService = new ChatBotService()
-        const response = await iaService.openAi.createChatCompletion({
-            model: "gpt-3.5-turbo",
+        const apibot = iaService.createopenApi()
+        const response = await apibot.chat.completions.create({
+            model: "gpt-4o-mini",
             messages: [
                 {
                     role: "system",
                     content: "Eres un chatbot para un restaurante. Responde de manera breve y específica según la intención del usuario. Usa las siguientes reglas: \
-                    1. Si el mensaje menciona el 'menú' o 'carta', responde solo con la palabra 'menu'. \
+                    1. Si el mensaje menciona el 'menú' o 'carta' , responde solo con la palabra 'menu'. \
                     2. Si menciona algo relacionado con pedidos, responde con 'pedido'. \
                     3. Si pregunta por horarios, responde con 'horario'. \
                     4. Si no entiendes, responde: 'No estoy seguro de cómo ayudarte con eso.'"
