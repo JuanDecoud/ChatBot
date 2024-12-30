@@ -51,7 +51,7 @@ const ChatBot: React.FC = ()=>{
                 </div>
                 <div className ="col-xxl-12"  >
                     <div className="col-xxl-12">
-                        <div className="container-fluid w-100 border border-1 p-2 overflow-auto"   style={{ height: "400px" }} >
+                        <div className="container-fluid w-100 border border-1 p-2 overflow-auto"   style={{ height: "500px" }} >
                         {
                                 chatHistory.map(
                                     (msg,index)=>(
