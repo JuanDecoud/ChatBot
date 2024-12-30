@@ -13,6 +13,12 @@ nlu:
       - podria ver la carta ?
       - quisiera ver la carta 
       - quisiera ver el menu
+      - me dirias los platos que ofrecen ?
+      - por favor, me podrias decir que platos ofrecen
+      - me podrias decir que platos disponibles hay.
+      - quisiera saber los platos que ofrecen
+      - quiero ver la carta
+      - quiero ver el menu
       
 
   - intent: ask_pedido
@@ -49,15 +55,29 @@ nlu:
       - ¿ Como Estas ?
       - hola 
       - ¿ que tal ?
+      - buenas tardes
+      - buenas noches
+      - saludos! como estas?
+      -hola, como estas?!
 
   - intent: saludo_y_menu
     examples: |
       - Hola, ¿me puedes mostrar el menú?
       - hola, quisiera ver el menu
       - hola, quisiera ver la carta
+      - hola, me decis el menu
+      - hola, me podrias decir los platos que ofrencen
       - Buenos días, ¿qué menú tienes?
       - Buenos días, podria ver el menu
       - Buenos días, podria ver la carta?
+      - buenos dias, me decis el menu, por favor
+      - buenos dias, quisiera ver la carta
+      - buenos dias, quisiera ver el  menu
+      - Buenas noches, podria ver el menu
+      - Buenas noches, podria ver la carta?
+      - Buenas noches, me decis el menu, por favor
+      - buenas tardes, quisiera ver la carta
+      - buenas tardes, quisiera ver el  menu
       - Hola, quiero ver el menú
       - Buenas tardes, ¿cuál es el menú hoy?
       - ¿Cómo estás? ¿Me muestras la carta?
