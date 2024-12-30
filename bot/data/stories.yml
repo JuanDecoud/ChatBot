@@ -1,0 +1,26 @@
+version: "3.1"
+stories:
+  - story: User asks for menu
+    steps:
+      - intent: ask_menu
+      - action: utter_ask_menu
+
+  - story: User asks for pedido
+    steps:
+      - intent: ask_pedido
+      - action: utter_ask_pedido
+
+  - story: User asks for horarios
+    steps:
+      - intent: ask_horarios
+      - action: utter_ask_horarios
+
+  - story: User says goodbye
+    steps:
+      - intent: ask_despedirse
+      - action: utter_ask_despedirse
+
+  - story: User say hola
+    steps:
+      - intent: ask_saludo
+      - action: utter_ask_saludo

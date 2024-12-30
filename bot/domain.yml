@@ -1,0 +1,28 @@
+version: "3.1"
+intents:
+  - ask_menu
+  - ask_pedido
+  - ask_despedirse
+  - ask_horarios
+  - ask_saludo
+
+responses:
+  utter_ask_menu:
+    - text: "menu"
+  
+  utter_ask_pedido:
+    - text: "pedido"
+  
+  utter_ask_horarios:
+    - text: "horario"
+  
+  utter_ask_despedirse:
+    - text: "Hasta Luego, Gracias!. Volve Pronto"
+
+  utter_ask_saludo:
+    - text: "Hola, ¿Como estas?. Decime tu consulta."
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

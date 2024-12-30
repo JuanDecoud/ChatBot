@@ -1,0 +1,45 @@
+version: "3.1"
+nlu:
+  - intent: ask_menu
+    examples: |
+      - ¿Qué menú tienes?
+      - ¿Cuál es el menú hoy?
+      - Muéstrame el menú
+      - Carta, ¿cuál tienes?
+      - Me Mostrarias la carta por favor ?
+      - que platos ofrecen ?
+      - Cual es el plato del dia ?
+
+  - intent: ask_pedido
+    examples: |
+      - Quiero hacer un pedido
+      - quisiera realizar una orden 
+      - quisiera pedir comida
+      - pedir algo del menu
+      - mandame sushi por favor
+      - 2 platos de sushi por favor
+      - quiero tallarines por favor
+
+  - intent: ask_horarios
+    examples: |
+      - ¿Cuáles son los horarios?
+      - ¿A qué hora abren?
+      - ¿En qué horarios están abiertos?
+
+  - intent: ask_despedirse
+    examples: |
+      - bye
+      - adiós
+      - hasta luego
+      - no entiendo
+      - Muchas gracias, saludos
+      - saludos
+      - chau
+      - hablamos luego
+
+  - intent: ask_saludo
+    examples: |
+      - buenos dias 
+      - ¿ Como Estas ?
+      - hola 
+      - ¿ que tal ?

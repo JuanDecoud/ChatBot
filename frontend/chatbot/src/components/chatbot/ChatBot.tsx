@@ -20,21 +20,24 @@ const ChatBot: React.FC = ()=>{
         setHistory(prevHistory=> [...prevHistory,message])
         const response = await messengerService.sendMessage(message);
         if('error' in response){
+            
             setLoading(false)
         }
         else{
+            const botresponse = response
+            setHistory(prevHistory=> [...prevHistory,botresponse])
             setLoading(false)
         }       
     }
 
     useEffect(()=>{
-        setHistory([{sender:"Bot" , message:"Bienvenido, soy tu asistente virtual, ¿En que puedo ayudarte?."}])
+        setHistory([{sender:"Bot" , message:"Bienvenido, soy tu asistente virtual,¿En que puedo Ayudarte?."}])
     },[])
 
     
     return (
-        <div className ="container-fluid">
-            <div className="row">
+        <div className ="d-flex w-100 justify-content-center ">
+            <div className="row mt-1 w-100">
                 <div className="col-xxl-12">
                     <div className="container-fluid w-100 bg-primary text-white h4 p-3 rounded">
                         Bienvenido a ChatBot
