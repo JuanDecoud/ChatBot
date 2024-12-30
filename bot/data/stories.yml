@@ -24,3 +24,9 @@ stories:
     steps:
       - intent: ask_saludo
       - action: utter_ask_saludo
+
+  - story: saludo y menu
+    steps:
+      - intent: saludo_y_menu
+      - action: utter_ask_menusld
+   

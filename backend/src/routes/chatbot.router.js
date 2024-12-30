@@ -9,7 +9,7 @@ import services from '../services/services.js'
 chatRouter.post ("/botReponse",async (req,res)=>{
     try {
         const question = req.body;
-        
+  
         const response = await axios.post(
           'http://localhost:5005/webhooks/rest/webhook',
           {
@@ -19,29 +19,32 @@ chatRouter.post ("/botReponse",async (req,res)=>{
   
         );
 
-        console.log(response.data[0].text)
-
         if(response){
-          
-          switch (response.data[0].text) {
 
+          let value =response.data[0].text
+          let menu = ""
+          let menuString=""
+          if (value === "menu"  || value ==="saludo-menu"){
+            menu = await services.productServices.getProducts()
+            menu.forEach(element => {menuString+=`Plato: ${element.name} Precio:$ ${element.price}\n`}); 
+          }
+
+          switch (value) {
             case "menu":
-              let menu = await services.productServices.getProducts()
-              let menuString =""
-              menu.forEach(element => {menuString+=`Plato: ${element.name} Precio:$ ${element.price}\n`}); 
-
               res.status(200).json({sender:"Bot", message:`El menu que ofrecemos es el siguiente: \n${menuString}}`})
             break;
 
             case "horario":
-              console.log(1)
-              res.status(200).json(`El horario que realizamos es de 8 am a 00 pm hs`)
+              res.status(200).json({sender:"Bot", message:`El horario que realizamos es de 8 am a 00 pm hs`})
             break;
-          
-            default:
 
+            case "saludo-menu":
+              res.status(200).json({sender:"Bot", message:`Buenos dias, ¿como estas?. ${menuString}`})
+            break;
+
+            default:
               res.status(200).json({sender:"Bot" ,message:response.data[0].text})
-              break;
+            break;
           }
 
         }

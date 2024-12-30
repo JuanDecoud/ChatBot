@@ -9,6 +9,11 @@ nlu:
       - Me Mostrarias la carta por favor ?
       - que platos ofrecen ?
       - Cual es el plato del dia ?
+      - podria ver el menu  ?
+      - podria ver la carta ?
+      - quisiera ver la carta 
+      - quisiera ver el menu
+      
 
   - intent: ask_pedido
     examples: |
@@ -25,6 +30,7 @@ nlu:
       - ¿Cuáles son los horarios?
       - ¿A qué hora abren?
       - ¿En qué horarios están abiertos?
+      - ¿ Estan abiertos ?
 
   - intent: ask_despedirse
     examples: |
@@ -43,3 +49,16 @@ nlu:
       - ¿ Como Estas ?
       - hola 
       - ¿ que tal ?
+
+  - intent: saludo_y_menu
+    examples: |
+      - Hola, ¿me puedes mostrar el menú?
+      - hola, quisiera ver el menu
+      - hola, quisiera ver la carta
+      - Buenos días, ¿qué menú tienes?
+      - Buenos días, podria ver el menu
+      - Buenos días, podria ver la carta?
+      - Hola, quiero ver el menú
+      - Buenas tardes, ¿cuál es el menú hoy?
+      - ¿Cómo estás? ¿Me muestras la carta?
+      - Buenas, quisiera ver el menú

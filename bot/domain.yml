@@ -5,6 +5,7 @@ intents:
   - ask_despedirse
   - ask_horarios
   - ask_saludo
+  - saludo_y_menu
 
 responses:
   utter_ask_menu:
@@ -21,6 +22,10 @@ responses:
 
   utter_ask_saludo:
     - text: "Hola, ¿Como estas?. Decime tu consulta."
+
+  utter_ask_menusld:
+    - text: "saludo-menu"
+
 
 
 session_config:

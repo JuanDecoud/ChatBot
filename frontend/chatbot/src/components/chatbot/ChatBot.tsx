@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { KeyboardEventHandler, useEffect, useState } from "react";
 import LoadingButton from "../../shared/loading-button/LoadingButton";
 import Messenger from "../../interfaces/Messenger";
 import MessengerService from "../../services/messenger.service";
@@ -13,22 +13,28 @@ const ChatBot: React.FC = ()=>{
 
     const handlerSubmit : React.FormEventHandler = async (e: React.FormEvent)=>{
         e.preventDefault();
-        
         setLoading(true)
         const message = {sender:"user", message:input} as Messenger
         setMessage(message)
         setHistory(prevHistory=> [...prevHistory,message])
         const response = await messengerService.sendMessage(message);
-        if('error' in response){
-            
-            setLoading(false)
-        }
+        if('error' in response){setLoading(false)}
         else{
+            setValue("")
             const botresponse = response
             setHistory(prevHistory=> [...prevHistory,botresponse])
             setLoading(false)
         }       
     }
+
+    const handleEnter = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          handlerSubmit(e as any);
+        }
+      };
+
+
 
     useEffect(()=>{
         setHistory([{sender:"Bot" , message:"Bienvenido, soy tu asistente virtual,¿En que puedo Ayudarte?."}])
@@ -45,11 +51,11 @@ const ChatBot: React.FC = ()=>{
                 </div>
                 <div className ="col-xxl-12"  >
                     <div className="col-xxl-12">
-                        <div className="container-fluid w-100 border border-1 p-2"   style={{ height: "400px" }} >
+                        <div className="container-fluid w-100 border border-1 p-2 overflow-auto"   style={{ height: "400px" }} >
                         {
                                 chatHistory.map(
                                     (msg,index)=>(
-                                        <div key={index} className={`p-2 shadow shadow-s rounded my-1
+                                        <div key={index} className={`p-2 shadow shadow-s rounded my-2
                                         ${msg.sender==="Bot"? "bg-warning ": "bg-body"} `}
                                         >
                                             {msg.sender}:    {msg.message}
@@ -60,8 +66,8 @@ const ChatBot: React.FC = ()=>{
                         </div>
                     </div>
                 </div>
-                <form className ="col-xxl-12" onSubmit={handlerSubmit}>
-                    <textarea name="message" className="form-control mt-2" aria-label="With textarea" style={{ height: "85px" }} placeholder="Escribe tu consulta." required onChange={(e)=>setValue(e.target.value)}></textarea>
+                <form className ="col-xxl-12" onSubmit={handlerSubmit}  >
+                    <textarea name="message" className="form-control mt-2" aria-label="With textarea" style={{ height: "85px" }} placeholder="Escribe tu consulta." required onChange={(e)=>setValue(e.target.value)} value={input} onKeyDown={handleEnter}></textarea>
                     <LoadingButton text="Enviar" loading={isLoading} className="btn btn-primary btn-lg mt-2"></LoadingButton>
                 </form>
             </div>
