@@ -37,7 +37,7 @@ const ChatBot: React.FC = ()=>{
 
 
     useEffect(()=>{
-        setHistory([{sender:"Bot" , message:"Bienvenido, soy tu asistente virtual,¿En que puedo Ayudarte?."}])
+        setHistory([{sender:"Bot" , message:"Bienvenido, soy tu asistente virtual,¿En qué puedo ayudarte?."}])
     },[])
 
     

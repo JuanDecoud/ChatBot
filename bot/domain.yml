@@ -28,13 +28,12 @@ slots:
         entity: cantidad
 
 
-
 responses:
   utter_ask_menu:
     - text: "menu"
   
   utter_ask_pedido:
-    - text: "pedido"
+    - text: "¿Que te gustaría pedir?. elige los platos del menú y especifica la cantidad, por favor!"
   
   utter_ask_horarios:
     - text: "horario"
@@ -43,7 +42,7 @@ responses:
     - text: "Hasta Luego, Gracias!. Volve Pronto"
 
   utter_ask_saludo:
-    - text: "Hola, ¿Como estas?. Decime tu consulta."
+    - text: "Hola, ¿Cómo estás?. Decime tu consulta."
 
   utter_ask_menusld:
     - text: "saludo-menu"
