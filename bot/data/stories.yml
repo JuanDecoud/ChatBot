@@ -34,5 +34,9 @@ stories:
     steps:
       - intent: out_of_scope
       - action: utter_out_of_scope
-   
-   
+
+  - story: hacer pedido
+    steps:
+      - intent: generar_orden
+      - action: action_hacer_pedido
+

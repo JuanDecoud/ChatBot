@@ -1,27 +1,26 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
+from rasa_sdk import Action
+from rasa_sdk.events import SlotSet
 
+import requests
 
-# This is a simple example for a custom action which utters "Hello World!"
+class ActionHacerPedido(Action):
+    def name(self) -> str:
+        return "action_hacer_pedido"
+    
+    def run(self, dispatcher, tracker, domain):
 
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
+        producto = tracker.get_slot("producto")
+        cantidad = tracker.get_slot("cantidad")
+       
+        if not cantidad :
+            dispatcher.utter_message(text="¿Cuántos platos te gustaría pedir?")
+            return []
+        else:
+            dispatcher.utter_message(f"Su pedido se ha realizado con exito Plato: {producto} cantidad:{cantidad}")
+            return[
+                SlotSet("producto", None),
+                SlotSet("cantidad", None)
+            ]
+        
+        # response = requests.post("http://tu-backend.com/pedidos", json={"producto": producto, "cantidad": cantidad})
+      

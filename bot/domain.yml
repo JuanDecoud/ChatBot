@@ -7,6 +7,25 @@ intents:
   - ask_saludo
   - saludo_y_menu
   - out_of_scope
+  - generar_orden
+
+
+entities:
+- producto
+- cantidad
+
+slots:
+  producto:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: producto
+  cantidad:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: cantidad
 
 
 
@@ -31,13 +50,15 @@ responses:
   
   utter_out_of_scope:
     - text: "Lo siento, no puedo manejar esa solicitud."
-
-
-
-
     
+  utter_pedido_confirmado:
+    - text: "Tu pedido de {cantidad} {producto} ha sido recibido."
 
+  utter_ask_cantidad:
+    - text: "¿Cuántos platos te gustaría pedir?"
 
+actions:
+  - action_hacer_pedido
 
 session_config:
   session_expiration_time: 60

@@ -93,4 +93,27 @@ nlu:
       - quisiera comprar un auto
       - cuando nacio jesus
       - te odio 
+
+  - intent: generar_orden
+    examples: |
+      - quisiera [2] platos de [sushi]
+      - quiero [sushi](producto) de [2](cantidad)
+      - quiero [sushi](producto) cantidad [3](cantidad)
+      - ¿me puedes dar [2](cantidad) [sushi](producto)?
+      - ordeno [sushi](producto) cantidad [5](cantidad)
+      - quiero [hamburguesa](producto) de [1](cantidad)
+      - me gustaría [hamburguesa](producto) cantidad [2](cantidad)
+      - ordeno [hamburguesa](producto) cantidad [4](cantidad)
+      - ¿puedo pedir [3](cantidad) [hamburguesas](producto)?
+      - quiero [pizza](producto) con [1](cantidad)
+      - dame [2](cantidad) [pizzas](producto)
+      - quiero [pasta](producto) cantidad [6](cantidad)
+      - me traes [3](cantidad) [pastas](producto)?
+      - ordeno [ensalada](producto) con [2](cantidad)
+      - quiero [ensalada](producto) de [1](cantidad)
+      - dame [1](cantidad) [taco](producto)
+      - quiero [3](cantidad) [tacos](producto)
+      - me gustaría [sushi](producto) de [2](cantidad) y [pasta](producto) de [1](cantidad)
+      - ¿puedo pedir [4](cantidad) [pizzas](producto) y [2](cantidad) [hamburguesas](producto)?
+      - quiero [sushi](producto), [pasta](producto) y [ensalada](producto) cantidad [3](cantidad)
       
