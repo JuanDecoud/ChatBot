@@ -22,9 +22,10 @@ Requerimientos previos para el Bot:
 
 ## Descargar e instalar lo siguiente: 
 
-[Python 3.8]: (https://www.python.org/ftp/python/3.8.0/python-3.8.0-amd64.exe)
-[PostgreSQL]: (https://www.postgresql.org/download/)) 
-[Visual c++ buildtools]: (https://visualstudio.microsoft.com/es/visual-cpp-build-tools/) :(instalar la opción para desarrollo de una aplicación de escritorio c++ , brinda las herramientas necesarias para que se pueda instalar rasa)
+1. [Python 3.8]:(https://www.python.org/ftp/python/3.8.0/python-3.8.0-amd64.exe).
+2. [PostgreSQL]:(https://www.postgresql.org/download/).
+3. [Visual c++ buildtools]:(https://visualstudio.microsoft.com/es/visual-cpp-build-tools/). **nota** : instalar la opcion c++ para escritorio.
+   
 
 1. Descargar el repositorio de GitHub y extraerlo en el escritorio o donde más prefieras.
 2. Abrir la carpeta con Visual Studio Code.
