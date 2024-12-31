@@ -21,23 +21,26 @@ El sistema está compuesto por tres principales tecnologías:
 Requerimientos previos para el Bot: 
 
 ## Descargar e instalar lo siguiente: 
+
 [Python 3.8]: (https://www.python.org/ftp/python/3.8.0/python-3.8.0-amd64.exe)
 [PostgreSQL]: (https://www.postgresql.org/download/)) 
 [Visual c++ buildtools]: (https://visualstudio.microsoft.com/es/visual-cpp-build-tools/) :(instalar la opción para desarrollo de una aplicación de escritorio c++ , brinda las herramientas necesarias para que se pueda instalar rasa)
 
-1-	Descargar el repositorio de github y extraerlo en el escritorio o donde mas prefieras.
-2-	Abrir la Carpeta con Visual Studio Code
-3-	Con el proyecto abierto en Visual , crear una nueva terminal  (se recomienda utilizar Bash) . 
-3.1 – Situarse en la carpeta backend (comando: cd backend ) correr el comando “npm install” para instalar las dependencias necesarias, una vez instaladas las dependencias correr el servidor “npm run dev”. Tener en cuenta las variables de entorno, si estas no están correctamente configuradas el servidor no va a funcionar.
-3.2 – Abrir una nueva terminal situarse en la carpeta del bot  “cd bot” . 
-	3.2.1 –  ejecutar “pip install psycopg2-binary”
-	3.2.1 – ejectuar “pip install --upgrade pip”
-  3.2.3 – ejecutar “pip install rasa”
-	3.2.4 – ejecutar “rasa run” -> esto iniciara el server de rasa por defecto :http://localhost:5005 - > con esta ruta se interactúa con el Bot.
-
-El modelo ya se encuentra subido y entrenado para los requerimientos del desafío por lo no es necesario volver a entrenarlo.
-
-4-	Por último, abrir una nueva terminal   situarse en el front end “cd frontend/chatbot” instalar las dependencias “npm install” y ejecutar el front “npm run dev” por defecto  la reta de acceso al front   http:localhost:5073/
+1. Descargar el repositorio de GitHub y extraerlo en el escritorio o donde más prefieras.
+2. Abrir la carpeta con Visual Studio Code.
+3. Con el proyecto abierto en Visual Studio Code, crear una nueva terminal (se recomienda utilizar Bash).
+   3.1. Situarse en la carpeta `backend` (comando: `cd backend`) y correr el comando `npm install` para instalar las dependencias necesarias. 
+        - Una vez instaladas las dependencias, correr el servidor con `npm run dev`. 
+        - **Nota:** Tener en cuenta las variables de entorno. Si no están correctamente configuradas, el servidor no funcionará.
+   3.2. Abrir una nueva terminal y situarse en la carpeta del bot (`cd bot`).
+        3.2.1. Ejecutar `pip install psycopg2-binary`.
+        3.2.2. Ejecutar `pip install --upgrade pip`.
+        3.2.3. Ejecutar `pip install rasa`.
+        3.2.4. Ejecutar `rasa run` -> Esto iniciará el servidor de Rasa en la ruta por defecto: [http://localhost:5005](http://localhost:5005).  
+        Con esta ruta se interactúa con el Bot.
+        - **Nota:** El modelo ya se encuentra subido y entrenado para los requerimientos del desafío, por lo que no es necesario volver a entrenarlo.
+4. Por último, abrir una nueva terminal, situarse en el frontend (`cd frontend/chatbot`), instalar las dependencias con `npm install` y ejecutar el frontend con `npm run dev`. 
+   - Por defecto, la ruta de acceso al frontend será: [http://localhost:5073/](http://localhost:5073/).
 
 ## Endpoints:
 
