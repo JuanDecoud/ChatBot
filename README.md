@@ -1,5 +1,7 @@
 # Challenge Chatbot IA
 
+![Texto Alternativo](./images/example.png)
+
 ## Introducción
 
 Esta aplicación está destinada a restaurantes y tiene como objetivo mejorar la experiencia de los clientes mediante la automatización de consultas comunes a través de un chatbot inteligente.
