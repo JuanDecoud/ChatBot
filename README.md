@@ -5,9 +5,10 @@
 Esta aplicación está destinada a restaurantes y tiene como objetivo mejorar la experiencia de los clientes mediante la automatización de consultas comunes a través de un chatbot inteligente.
 
 El sistema está compuesto por tres principales tecnologías:
-•	Rasa: Framework utilizado para entrenar e implementar el chatbot.
-•	Express.js: Backend que conecta el chatbot con el frontend y la base de datos, gestionando las peticiones.
-•	React: Frontend que proporciona una interfaz intuitiva para que los usuarios interactúen con el bot.
+
+- **Rasa:** Framework utilizado para entrenar e implementar el chatbot.
+- **Express.js:** Backend que conecta el chatbot con el frontend y la base de datos, gestionando las peticiones.
+- **React:** Frontend que proporciona una interfaz intuitiva para que los usuarios interactúen con el bot.
 
 ## Estructura de la aplicación:
 
