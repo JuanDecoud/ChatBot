@@ -15,12 +15,20 @@ class ActionHacerPedido(Action):
         if not cantidad :
             dispatcher.utter_message(text="¿Cuántos platos te gustaría pedir?")
             return []
-        else:
-            dispatcher.utter_message(f"Su pedido se ha realizado con exito Plato: {producto} cantidad:{cantidad}")
-            return[
-                SlotSet("producto", None),
-                SlotSet("cantidad", None)
-            ]
+      
+        try:
+            response = requests.post("http://localhost:8080/orders/addOrder", json={"producto": producto, "cantidad": cantidad})
+            response.raise_for_status()  
+            
+            dispatcher.utter_message(f"Su pedido se ha realizado con éxito. Plato: {producto} Cantidad: {cantidad}")
         
-        # response = requests.post("http://tu-backend.com/pedidos", json={"producto": producto, "cantidad": cantidad})
+        except requests.exceptions.RequestException as e:
+            dispatcher.utter_message(text=f"Hubo un problema al realizar el pedido: {str(e)}")
+        
+        return [
+            SlotSet("producto", None),
+            SlotSet("cantidad", None)
+        ]
+        
+        
       

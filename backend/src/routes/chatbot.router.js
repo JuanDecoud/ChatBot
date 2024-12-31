@@ -1,5 +1,4 @@
 import { Router } from "express";
-import ChatBotService from "../services/chatbot/chatbot.services.js";
 import axios from "axios"
 import EnvValues from "../config/env/env.variables.js";
 

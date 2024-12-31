@@ -8,4 +8,5 @@ export default class EnvValues {
     static dbUser = process.env.DB_USER
     static port = process.env.PORT_SERVER
     static chatKey = process.env.GPT_KEY
+    static storeSecret = process.env.STORE_SECRET
 }

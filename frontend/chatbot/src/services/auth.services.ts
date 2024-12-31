@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import User from "../interfaces/User";
 import LoginError from "../interfaces/LoginError";
+import LogOutResponse from "../interfaces/LogOutResponse";
 
 export default class AuthService {
 
@@ -10,8 +11,8 @@ export default class AuthService {
 
     async login ( user: User) : Promise<User | LoginError>{
         try {
-            const response = await apiClient.post<User>(`${this.apiUrl}`,user)
-            return response.data
+            const response = await apiClient.post<User>(`${this.apiUrl}`,user);
+            return response.data;
             
         } catch (error) {
             if (axios.isAxiosError(error)) {
@@ -23,5 +24,22 @@ export default class AuthService {
       
     }
 
-
+    async logout(): Promise<LogOutResponse | LoginError> {
+        try {
+          const response = await apiClient.get<{ status: string; message: string }>(
+            "/user/logout"
+          );
+          return response.data;
+        } catch (error) {
+          if (axios.isAxiosError(error)) {
+            return {
+              error: error.response?.data.message || "Error desconocido",
+            };
+          }
+          return { error: "Error en el servidor" };
+        }
+      }
 }
+
+
+

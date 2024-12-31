@@ -7,7 +7,7 @@ const ProductForm: React.FC = ()=>{
 
     const productService = new ProductService()
 
-    let [formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         code: "",
         name: "",
         price: 0,
@@ -68,28 +68,42 @@ const ProductForm: React.FC = ()=>{
             </div>
           
             <div className ="col-xxl-8 offset-xxl-2 mt-1">
-                <input type="text" name="code" className=" form-control form-control-lg" value={formData.code} 
-                 onChange={handleChange}
-                placeholder="codigo" required
-                />
+                <div className ="input-group input-group-lg">
+                    <span className="input-group-text" style={{width:"150px"}}>Codigo</span>
+                    <input type="text" name="code" className=" form-control form-control-lg" value={formData.code} 
+                    onChange={handleChange}
+                    placeholder="codigo" required
+                    />
+                </div>
             </div>
             <div className ="col-xxl-8 offset-xxl-2 mt-1">
-                <input type="text" name="name" className=" form-control form-control-lg" value={formData.name}
-                onChange={handleChange} 
-                placeholder="nombre" required/>
+                <div className ="input-group input-group-lg">
+                        <span className="input-group-text" style={{width:"150px"}}>Nombre</span>
+                        <input type="text" name="name" className=" form-control form-control-lg" value={formData.name}
+                        onChange={handleChange} 
+                        placeholder="nombre" required/>
+                </div>
             </div>
             <div className ="col-xxl-8 offset-xxl-2 mt-1">
-                <input type="number" name="price" className=" form-control form-control-lg" value={formData.price}
-                 onChange={handleChange}
-                 placeholder="precio" required/>
+                <div className ="input-group input-group-lg">
+                        <span className="input-group-text" style={{width:"150px"}}>Precio</span>
+                        <input type="number" name="price" className=" form-control form-control-lg" value={formData.price}
+                        onChange={handleChange}
+                        placeholder="precio" required/>
+                </div>
             </div>
             <div className ="col-xxl-8 offset-xxl-2 mt-1">
-                <input type="text" name="description" className=" form-control form-control-lg" value={formData.description} 
-                onChange={handleChange}
-                placeholder="descripción" required/>
+                <div className ="input-group input-group-lg">
+                        <span className="input-group-text" style={{width:"150px"}}>Descripción</span>
+                        <input type="text" name="description" className=" form-control form-control-lg" value={formData.description} 
+                        onChange={handleChange}
+                        placeholder="descripción" required/>
+                </div>
             </div>
             <div className ="col-xxl-8 offset-xxl-2 mt-2">
-                <LoadingButton text="Confirmar" loading={loading} className="btn btn-primary btn-lg" ></LoadingButton>
+                <div className ="input-group input-group-lg">
+                    <LoadingButton text="Confirmar" loading={loading} className="btn btn-primary btn-lg" ></LoadingButton>
+                </div>
             </div>
             {message && !isSuccess && (
                 <div
