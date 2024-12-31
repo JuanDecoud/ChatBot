@@ -6,6 +6,9 @@ intents:
   - ask_horarios
   - ask_saludo
   - saludo_y_menu
+  - out_of_scope
+
+
 
 responses:
   utter_ask_menu:
@@ -25,6 +28,14 @@ responses:
 
   utter_ask_menusld:
     - text: "saludo-menu"
+  
+  utter_out_of_scope:
+    - text: "Lo siento, no puedo manejar esa solicitud."
+
+
+
+
+    
 
 
 

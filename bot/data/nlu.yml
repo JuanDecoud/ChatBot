@@ -27,9 +27,7 @@ nlu:
       - quisiera realizar una orden 
       - quisiera pedir comida
       - pedir algo del menu
-      - mandame sushi por favor
-      - 2 platos de sushi por favor
-      - quiero tallarines por favor
+
 
   - intent: ask_horarios
     examples: |
@@ -82,3 +80,17 @@ nlu:
       - Buenas tardes, ¿cuál es el menú hoy?
       - ¿Cómo estás? ¿Me muestras la carta?
       - Buenas, quisiera ver el menú
+
+  - intent: out_of_scope
+    examples: |
+      - quien es el presidente 
+      - quiero pedir un remis
+      - quiero ir al baño 
+      - la casa es de color rojo
+      - que opinas de los desastres naturales 
+      - me quiero morir
+      - no estoy contento con tu respuesta 
+      - quisiera comprar un auto
+      - cuando nacio jesus
+      - te odio 
+      

@@ -34,6 +34,10 @@ chatRouter.post ("/botReponse",async (req,res)=>{
               res.status(200).json({sender:"Bot", message:`El menu que ofrecemos es el siguiente: \n${menuString}}`})
             break;
 
+            case "pedido":
+              
+            break;
+
             case "horario":
               res.status(200).json({sender:"Bot", message:`El horario que realizamos es de 8 am a 00 pm hs`})
             break;

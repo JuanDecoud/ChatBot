@@ -29,4 +29,10 @@ stories:
     steps:
       - intent: saludo_y_menu
       - action: utter_ask_menusld
+
+  - story: fuera de contexto
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+   
    
