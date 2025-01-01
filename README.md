@@ -14,9 +14,9 @@ El sistema está compuesto por tres principales tecnologías:
 
 ## Estructura de la aplicación:
 
-/backend -> API y lógica del servidor (Node.js, Express) 
-/bot -> Chatbot basado en Rasa
-/frontend -> Código del cliente (React) 
+1. /backend -> API y lógica del servidor (Node.js, Express) 
+2. /bot -> Chatbot basado en Rasa
+3. /frontend -> Código del cliente (React) 
 
 
 ## Guía de instalación
