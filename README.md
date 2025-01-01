@@ -67,7 +67,7 @@ Main url - > https://LocalHost:8080
 
 ## Ejemplos de mensajes que entiende el bot:
 
-### El  Bot interpreta el saludo y lo devuelve ejemplos:
+### El  Bot interpreta el saludo y lo devuelve:
 - Buenos días ¿Como estas? 
 - ¡Hola! ¿Qué tal ‘? 
 ### Cuando el cliente pide el menú -> para este caso agregue varios ejemplos en los intent para el entrenamiento, por lo que entiende frases como: 
@@ -75,16 +75,14 @@ Main url - > https://LocalHost:8080
 - ¿Podría saber el plato del día?
 - ¿Podrías enviarme la carta?
 ### Cuando el cliente saluda y pide el menú en un mismo mensaje -> me pareció interesante indagar en este tipo de situaciones, entonces busque una forma de combinar un saludo con la solicitud de carta para que la conversación sea más realista
-Ejemplos como:  
-Buenos días. ¿qué menú ofrecen? - > el Bot responde con un saludo y el menú
-Cuando los mensajes son fuera de contexto o que no entran en ninguno de los entrenamientos - > el Bot responde que no entiende el mensaje.
-Ejemplos como: 
-¿A qué hora pasa el colectivo?
+- Buenos días. ¿qué menú ofrecen? - > el Bot responde con un saludo y el menú
+### Cuando los mensajes son fuera de contexto o que no entran en ninguno de los entrenamientos - > el Bot responde que no entiende el mensaje.
+- ¿A qué hora pasa el colectivo?
 ### Pregunta frecuenta como en que horario esta abierto el restaurante -> el Bot responde con el horario habitual 
-Ejemplo: 
-¿Están abiertos?
+- ¿Están abiertos?
 ### Cuando el cliente se despide ->   el Bot responde con un saludo de despedida
-ejemplos: ¡Hasta luego, muchas gracias!, Chau, hablamos luego
+- ¡Hasta luego,
+- muchas gracias!
 
 El Bot tiene un entrenamiento básico y quizás algún plus en base a lo que se solicitó en el desafío, 
 se puede entrenar mucho mas y abarcar muchas mas situaciones para que la conversación sea mas realista, 
