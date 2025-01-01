@@ -84,16 +84,14 @@ Main url - > https://LocalHost:8080
 - ¡Hasta luego,
 - muchas gracias!
 
-El Bot tiene un entrenamiento básico y quizás algún plus en base a lo que se solicitó en el desafío, 
-se puede entrenar mucho mas y abarcar muchas mas situaciones para que la conversación sea mas realista, 
-Rasa brinda una herramienta muy potente y la conocí gracias a este desafío por lo que todavía hay muchas
-mas cosas por investigar y mejorar y creo que es muy interesante y desafiante.
+El bot cuenta con un entrenamiento básico, con algunos extras en relación a lo solicitado en el desafío.
+Es posible seguir entrenándolo para cubrir muchas más situaciones y hacer que la conversación sea más realista.
+Gracias a este desafío, descubrí Rasa, una herramienta muy potente, y aunque todavía me queda mucho por explorar y mejorar, creo que el proceso es muy interesante y representa un gran desafío.
 
 # Base De datos 
 
-La bd viene cargado con un usuario por defecto : 
-user : usuario@gmail.com
-password : 1456 
+La base de datos viene con un usuario cargado por defecto:
+- Usuario: usuario@gmail.com
+- Contraseña: 1456
 
-La carga de productos se hace desde el formulario del frontend , y tambien se listan todos los productos que ofrece el restaurante 
-Lo hice de esta manera para que sea mas entretenido a la hora de probar el bot
+La carga de productos se realiza desde el formulario en el frontend, y también se pueden listar todos los productos que ofrece el restaurante.
