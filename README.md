@@ -83,7 +83,18 @@ Main url - > https://LocalHost:8080
 ### Cuando el cliente se despide ->   el Bot responde con un saludo de despedida
 - ¡Hasta luego,
 - muchas gracias!
-
+### Cuando cliente solicita un pedido: 
+- ***nota***: En esta situacion el bot le solicita al cliente que especifique que pedido quiere realizar indicandole que solicite un plato de la carta  y la cantidad que va a solicitar 
+- Quisiéra hacer un pedido,
+- Quiero pedir sushi!
+### Generacion del pedido: 
+- ***nota*** : En esta situación, entra en juego el servidor de acciones de Rasa. El objetivo es extraer las propiedades (producto y cantidad) según lo solicitado por el cliente. Esto se logra entrenando al bot para que pueda identificar dichas propiedades y almacenarlas en slots (una herramienta que Rasa proporciona para guardar datos). Posteriormente, esta información se envía al backend del servidor, que se encarga de persistirla en la base de datos.
+  - dame 2 platos de sushi
+  - quiero 2 hamburguesas
+  - quisiera 1 plato de tallarines
+  - quiero sushi -> ***nota***: En esta situación el bot pide que se especifique la cantidad.
+  
+  
 El bot cuenta con un entrenamiento básico, con algunos extras en relación a lo solicitado en el desafío.
 Es posible seguir entrenándolo para cubrir muchas más situaciones y hacer que la conversación sea más realista.
 Gracias a este desafío, descubrí Rasa, una herramienta muy potente, y aunque todavía me queda mucho por explorar y mejorar, creo que el proceso es muy interesante y representa un gran desafío.
