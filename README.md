@@ -42,7 +42,8 @@ Requerimientos previos para el Bot:
       2. Ejecutar `pip install --upgrade pip`.  
       3. Ejecutar `pip install rasa`.  
       4. Ejecutar `rasa run` -> Esto iniciará el servidor de Rasa en la ruta por defecto: [http://localhost:5005](http://localhost:5005).  
-         Con esta ruta se interactúa con el Bot.  
+         Con esta ruta se interactúa con el Bot.
+      5. Abrir una nueva terminal y ejecutar `rasa run actions` (server para que el bot pueda ejecutar acciones personalizadas)
       - **Nota:** El modelo ya se encuentra subido y entrenado para los requerimientos del desafío, por lo que no es necesario volver a entrenarlo.
 4. Por último, abrir una nueva terminal, situarse en el frontend (`cd frontend/chatbot`), instalar las dependencias con `npm install` y ejecutar el frontend con `npm run dev`.  
    - Por defecto, la ruta de acceso al frontend será: [http://localhost:5073/](http://localhost:5073/).
@@ -52,26 +53,27 @@ Requerimientos previos para el Bot:
 Main url - > https://LocalHost:8080
 
 ### Productos: router para el manejo de los productos 
- 1. Post: main/products/addProducts - >   Agrega nuevos productos a la carta
- 2. Get: main/products/getProducts -> Se obtienen todos los productos que ofrece el restaurant
+ 1. Post: main/products/addProducts - >   Agrega nuevos productos a la carta.
+ 2. Get: main/products/getProducts -> Se obtienen todos los productos que ofrece el restaurant.
 ### Usuario: alta de Usuario y manejo de sessiones
- 1. Post: main/user/addUser - >   End point para alta de usuario
- 2. Post: main/user/auth ->  Se encarga de generar la sesión del usuario
+ 1. Post: main/user/addUser - >   End point para alta de usuario.
+ 2. Post: main/user/auth ->  Se encarga de generar la sesión del usuario.
+ 3. Get: main/user/logout -> para cerrar sessión.
 ### Pedidos: Gestiona los pedidos de los clientes
- 1. Post: main/order/generateOrder - >   End point para alta del pedido
+ 1. Post: main/order/generateOrder - >   End point para alta del pedido.
  2. Get: main/order/getOrders /:id- >   Se obtienen los pedidos  del cliente especificado por la id de la sesión.
 ### ChatBot: Gestiona la interacción del usuario con el bot
- 1. Post: main/chatbot/botResponse - >   se procesa el mensaje del usuario y el bot envia una respuesta, en base a la respuesta del bot el backend realiza un acción especifica
+ 1. Post: main/chatbot/botResponse - >   se procesa el mensaje del usuario y el bot envia una respuesta, en base a la respuesta del bot el backend realiza un acción especifica.
 
 ## Ejemplos de mensajes que entiende el bot:
 
 ### El  Bot interpreta el saludo y lo devuelve ejemplos:
-Buenos días ¿Como estas? 
-¡Hola! ¿Qué tal ‘? 
+- Buenos días ¿Como estas? 
+- ¡Hola! ¿Qué tal ‘? 
 ### Cuando el cliente pide el menú -> para este caso agregue varios ejemplos en los intent para el entrenamiento, por lo que entiende frases como: 
-Que menú ofrecen ¿?
-¿Podría saber el plato del día?
-¿Podrías enviarme la carta?
+- Que menú ofrecen ¿?
+- ¿Podría saber el plato del día?
+- ¿Podrías enviarme la carta?
 ### Cuando el cliente saluda y pide el menú en un mismo mensaje -> me pareció interesante indagar en este tipo de situaciones, entonces busque una forma de combinar un saludo con la solicitud de carta para que la conversación sea más realista
 Ejemplos como:  
 Buenos días. ¿qué menú ofrecen? - > el Bot responde con un saludo y el menú
