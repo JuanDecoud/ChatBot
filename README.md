@@ -52,16 +52,16 @@ Requerimientos previos para el Bot:
 Main url - > https://LocalHost:8080
 
 ### Productos: router para el manejo de los productos 
-  Post: main/products/addProducts - >   Agrega nuevos productos a la carta
-  Get: main/products/getProducts -> Se obtienen todos los productos que ofrece el restaurant
+ 1. Post: main/products/addProducts - >   Agrega nuevos productos a la carta
+ 2. Get: main/products/getProducts -> Se obtienen todos los productos que ofrece el restaurant
 ### Usuario: alta de Usuario y manejo de sessiones
-  Post: main/user/addUser - >   End point para alta de usuario
-  Post: main/user/auth ->  Se encarga de generar la sesión del usuario
+ 1. Post: main/user/addUser - >   End point para alta de usuario
+ 2. Post: main/user/auth ->  Se encarga de generar la sesión del usuario
 ### Pedidos: Gestiona los pedidos de los clientes
-  Post: main/order/generateOrder - >   End point para alta del pedido
-  Get: main/order/getOrders /:id- >   Se obtienen los pedidos  del cliente especificado por la id de la sesión.
+ 1. Post: main/order/generateOrder - >   End point para alta del pedido
+ 2. Get: main/order/getOrders /:id- >   Se obtienen los pedidos  del cliente especificado por la id de la sesión.
 ### ChatBot: Gestiona la interacción del usuario con el bot
-Post: main/chatbot/botResponse - >   se procesa el mensaje del usuario y el bot envia una respuesta, en base a la respuesta del bot el backend realiza un acción especifica
+ 1. Post: main/chatbot/botResponse - >   se procesa el mensaje del usuario y el bot envia una respuesta, en base a la respuesta del bot el backend realiza un acción especifica
 
 ## Ejemplos de mensajes que entiende el bot:
 
