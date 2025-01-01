@@ -91,7 +91,7 @@ mas cosas por investigar y mejorar y creo que es muy interesante y desafiante.
 
 # Base De datos 
 
-la bd viene cargado con un usuario por defecto : 
+La bd viene cargado con un usuario por defecto : 
 user : usuario@gmail.com
 password : 1456 
 
