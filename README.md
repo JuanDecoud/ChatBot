@@ -14,9 +14,9 @@ El sistema está compuesto por tres principales tecnologías:
 
 ## Estructura de la aplicación:
 
-/backend -> API y lógica del servidor (Node.js, Express) 
-/bot -> Chatbot basado en Rasa
-/frontend -> Código del cliente (React) 
+1. /backend -> API y lógica del servidor (Node.js, Express) 
+2. /bot -> Chatbot basado en Rasa
+3. /frontend -> Código del cliente (React) 
 
 
 ## Guía de instalación
@@ -42,7 +42,8 @@ Requerimientos previos para el Bot:
       2. Ejecutar `pip install --upgrade pip`.  
       3. Ejecutar `pip install rasa`.  
       4. Ejecutar `rasa run` -> Esto iniciará el servidor de Rasa en la ruta por defecto: [http://localhost:5005](http://localhost:5005).  
-         Con esta ruta se interactúa con el Bot.  
+         Con esta ruta se interactúa con el Bot.
+      5. Abrir una nueva terminal y ejecutar `rasa run actions` (server para que el bot pueda ejecutar acciones personalizadas)
       - **Nota:** El modelo ya se encuentra subido y entrenado para los requerimientos del desafío, por lo que no es necesario volver a entrenarlo.
 4. Por último, abrir una nueva terminal, situarse en el frontend (`cd frontend/chatbot`), instalar las dependencias con `npm install` y ejecutar el frontend con `npm run dev`.  
    - Por defecto, la ruta de acceso al frontend será: [http://localhost:5073/](http://localhost:5073/).
@@ -52,48 +53,56 @@ Requerimientos previos para el Bot:
 Main url - > https://LocalHost:8080
 
 ### Productos: router para el manejo de los productos 
-  Post: main/products/addProducts - >   Agrega nuevos productos a la carta
-  Get: main/products/getProducts -> Se obtienen todos los productos que ofrece el restaurant
+ 1. Post: main/products/addProducts - >   Agrega nuevos productos a la carta.
+ 2. Get: main/products/getProducts -> Se obtienen todos los productos que ofrece el restaurant.
 ### Usuario: alta de Usuario y manejo de sessiones
-  Post: main/user/addUser - >   End point para alta de usuario
-  Post: main/user/auth ->  Se encarga de generar la sesión del usuario
+ 1. Post: main/user/addUser - >   End point para alta de usuario.
+ 2. Post: main/user/auth ->  Se encarga de generar la sesión del usuario.
+ 3. Get: main/user/logout -> para cerrar sessión.
 ### Pedidos: Gestiona los pedidos de los clientes
-  Post: main/order/generateOrder - >   End point para alta del pedido
-  Get: main/order/getOrders /:id- >   Se obtienen los pedidos  del cliente especificado por la id de la sesión.
+ 1. Post: main/order/generateOrder - >   End point para alta del pedido.
+ 2. Get: main/order/getOrders /:id- >   Se obtienen los pedidos  del cliente especificado por la id de la sesión.
 ### ChatBot: Gestiona la interacción del usuario con el bot
-Post: main/chatbot/botResponse - >   se procesa el mensaje del usuario y el bot envia una respuesta, en base a la respuesta del bot el backend realiza un acción especifica
+ 1. Post: main/chatbot/botResponse - >   se procesa el mensaje del usuario y el bot envia una respuesta, en base a la respuesta del bot el backend realiza un acción especifica.
 
 ## Ejemplos de mensajes que entiende el bot:
 
-### El  Bot interpreta el saludo y lo devuelve ejemplos:
-Buenos días ¿Como estas? 
-¡Hola! ¿Qué tal ‘? 
+### El  Bot interpreta el saludo y lo devuelve:
+- Buenos días ¿Como estas? 
+- ¡Hola! ¿Qué tal ‘? 
 ### Cuando el cliente pide el menú -> para este caso agregue varios ejemplos en los intent para el entrenamiento, por lo que entiende frases como: 
-Que menú ofrecen ¿?
-¿Podría saber el plato del día?
-¿Podrías enviarme la carta?
+- Que menú ofrecen ¿?
+- ¿Podría saber el plato del día?
+- ¿Podrías enviarme la carta?
 ### Cuando el cliente saluda y pide el menú en un mismo mensaje -> me pareció interesante indagar en este tipo de situaciones, entonces busque una forma de combinar un saludo con la solicitud de carta para que la conversación sea más realista
-Ejemplos como:  
-Buenos días. ¿qué menú ofrecen? - > el Bot responde con un saludo y el menú
-Cuando los mensajes son fuera de contexto o que no entran en ninguno de los entrenamientos - > el Bot responde que no entiende el mensaje.
-Ejemplos como: 
-¿A qué hora pasa el colectivo?
+- Buenos días. ¿qué menú ofrecen? - > el Bot responde con un saludo y el menú
+### Cuando los mensajes son fuera de contexto o que no entran en ninguno de los entrenamientos - > el Bot responde que no entiende el mensaje.
+- ¿A qué hora pasa el colectivo?
 ### Pregunta frecuenta como en que horario esta abierto el restaurante -> el Bot responde con el horario habitual 
-Ejemplo: 
-¿Están abiertos?
+- ¿Están abiertos?
 ### Cuando el cliente se despide ->   el Bot responde con un saludo de despedida
-ejemplos: ¡Hasta luego, muchas gracias!, Chau, hablamos luego
-
-El Bot tiene un entrenamiento básico y quizás algún plus en base a lo que se solicitó en el desafío, 
-se puede entrenar mucho mas y abarcar muchas mas situaciones para que la conversación sea mas realista, 
-Rasa brinda una herramienta muy potente y la conocí gracias a este desafío por lo que todavía hay muchas
-mas cosas por investigar y mejorar y creo que es muy interesante y desafiante.
+- ¡Hasta luego,
+- muchas gracias!
+### Cuando cliente solicita un pedido: 
+- ***nota***: En esta situacion el bot le solicita al cliente que especifique que pedido quiere realizar indicandole que solicite un plato de la carta  y la cantidad que va a solicitar 
+- Quisiéra hacer un pedido,
+- Quiero pedir sushi!
+### Generacion del pedido: 
+- ***nota*** : En esta situación, entra en juego el servidor de acciones de Rasa. El objetivo es extraer las propiedades (producto y cantidad) según lo solicitado por el cliente. Esto se logra entrenando al bot para que pueda identificar dichas propiedades y almacenarlas en slots (una herramienta que Rasa proporciona para guardar datos). Posteriormente, esta información se envía al backend del servidor, que se encarga de persistirla en la base de datos.
+  - dame 2 platos de sushi
+  - quiero 2 hamburguesas
+  - quisiera 1 plato de tallarines
+  - quiero sushi -> ***nota***: En esta situación el bot pide que se especifique la cantidad.
+  
+  
+El bot cuenta con un entrenamiento básico, con algunos extras en relación a lo solicitado en el desafío.
+Es posible seguir entrenándolo para cubrir muchas más situaciones y hacer que la conversación sea más realista.
+Gracias a este desafío, descubrí Rasa, una herramienta muy potente, y aunque todavía me queda mucho por explorar y mejorar, creo que el proceso es muy interesante y representa un gran desafío.
 
 # Base De datos 
 
-la bd viene cargado con un usuario por defecto : 
-user : usuario@gmail.com
-password : 1456 
+La base de datos viene con un usuario cargado por defecto:
+- Usuario: usuario@gmail.com
+- Contraseña: 1456
 
-La carga de productos se hace desde el formulario del frontend , y tambien se listan todos los productos que ofrece el restaurante 
-Lo hice de esta manera para que sea mas entretenido a la hora de probar el bot
+La carga de productos se realiza desde el formulario en el frontend, y también se pueden listar todos los productos que ofrece el restaurante.
