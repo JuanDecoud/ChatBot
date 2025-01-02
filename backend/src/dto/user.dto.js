@@ -1,9 +1,10 @@
 export default class UserDTO {
     constructor (user){
+        
         if(user){
-            this.id = user._id.toString()
+            this.id = user._id
             this.userMail = user.email
-            this.name = user.name + user.lastname
+            this.name = user.name 
             this.phone = user.phone
             this.addres = user.address
         }

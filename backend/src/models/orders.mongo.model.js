@@ -23,7 +23,12 @@ const orderSchema = new mongoose.Schema({
             }
 
         ]
-    }
+    },
+    status:{
+        type:String,
+        default:"En curso"
+    },
+    date:String
 });
 
 

@@ -24,8 +24,23 @@ export default class AuthService {
       
     }
 
+    async validateSession(): Promise <User | LoginError> {
+      try {
+          const response = await apiClient.get<User>("/user/session");
+          return response.data
+      } catch (error) {
+        if(axios.isAxiosError(error)){
+          return { error: error.response?.data.message  };
+        }
+        return {error:"error en el servidor"}
+      }
+    }
+
+    
+
     async logout(): Promise<LogOutResponse | LoginError> {
         try {
+          sessionStorage.removeItem("user")
           const response = await apiClient.get<{ status: string; message: string }>(
             "/user/logout"
           );

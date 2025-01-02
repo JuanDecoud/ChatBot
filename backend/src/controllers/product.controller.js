@@ -23,4 +23,6 @@ export default class ProductController{
             res.status(403).json({status:"error" , error:error })
         }
     }
+
+
 }

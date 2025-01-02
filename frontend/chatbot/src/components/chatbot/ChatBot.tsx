@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import LoadingButton from "../../shared/loading-button/LoadingButton";
 import Messenger from "../../interfaces/Messenger";
 import MessengerService from "../../services/messenger.service";
@@ -43,7 +43,7 @@ const ChatBot: React.FC = ()=>{
     
     return (
         <div className ="d-flex w-100 justify-content-center ">
-            <div className="row mt-1 w-100">
+            <div className="row mt-1 w-100 p-3">
                 <div className="col-xxl-12">
                     <div className="container-fluid w-100 bg-primary text-white h4 p-3 rounded">
                         Bienvenido a ChatBot
@@ -67,8 +67,10 @@ const ChatBot: React.FC = ()=>{
                     </div>
                 </div>
                 <form className ="col-xxl-12" onSubmit={handlerSubmit}  >
-                    <textarea name="message" className="form-control mt-2" aria-label="With textarea" style={{ height: "85px" }} placeholder="Escribe tu consulta." required onChange={(e)=>setValue(e.target.value)} value={input} onKeyDown={handleEnter}></textarea>
-                    <LoadingButton text="Enviar" loading={isLoading} className="btn btn-primary btn-lg mt-2"></LoadingButton>
+                    <div className="d-inline-flex w-100">
+                        <textarea name="message" className="form-control mt-2" aria-label="With textarea" style={{ height: "85px" }} placeholder="Escribe tu consulta." required onChange={(e)=>setValue(e.target.value)} value={input} onKeyDown={handleEnter}></textarea>
+                        <LoadingButton text="Enviar" loading={isLoading} className="btn btn-primary btn-lg mt-2 mx-1"></LoadingButton>
+                    </div>
                 </form>
             </div>
           

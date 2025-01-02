@@ -32,11 +32,11 @@ const initializePassport = () => {
         usernameField: 'email'
     }, async(email, password, done) => {
         try {
-          
+        
             let user = await services.userServices.findbyuserName(email.toLocaleLowerCase())
             if (!user ) {return done(null, false)}
             if (!validatePassword(password, user)) return done(null, false)
-
+            
             return done(null, user)
         } catch(err) {
             console.log(err)

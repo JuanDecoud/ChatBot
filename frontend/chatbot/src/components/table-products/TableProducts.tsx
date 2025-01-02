@@ -6,16 +6,20 @@ import ProductService from "../../services/product.service";
 const TableProducts : React.FC = ()=>{
     const [products, setProducts] = useState<Product[]>([]); 
     const [error, setError] = useState<string | null>(null); 
+    const [isloading,setLoading] = useState<boolean>(false)
     
   
     useEffect(() => {
+        setLoading(true)
         const productService = new ProductService();
         const fetchProducts = async () => {
         const result = await productService.getProducts();
             if ('error' in result) {
                 console.log(result.error)
+                setLoading(false)
                 setError(result.error); 
             } else {
+                setLoading(false)
                 setProducts(result); 
             }
         };
@@ -52,10 +56,22 @@ const TableProducts : React.FC = ()=>{
                                 <td>{product.price.toLocaleString("es",{minimumFractionDigits:2})}</td>
                             </tr>
                         ))
-                    ) : (
-                        <tr>
-                            <td colSpan={3}>No se encontraron productos</td>
-                        </tr>
+                    ) :                 (
+                        isloading?(
+                            <tr  >
+                                <td colSpan={3}  >
+                                <div className="spinner-border" style={{width: "3rem", height: "3rem"}} role="status">
+                                    < span className="visually-hidden">Loading...</span>
+                                </div>
+                                                                    
+                                </td>
+                            </tr>
+                        ):(
+                            <div className="alert bg-danger w-100">
+                                <td >No hay productos para listar</td>
+                            </div>
+                        )
+        
                     )}
                 </tbody>
             </table>

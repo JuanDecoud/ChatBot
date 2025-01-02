@@ -1,0 +1,6 @@
+DB_PASSWORD=Kaladin22
+DB_USER=juanjodecoud
+PORT_SERVER =8080
+DB_NAME =chatbot
+GPT_KEY=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
+STORE_SECRET=monkeyIslandTheme

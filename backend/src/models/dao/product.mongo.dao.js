@@ -23,4 +23,16 @@ export default class ProductDao {
             return null
         }
     }
+
+    getProductByName=async(productName)=>{
+        try {
+            const product = await productModel.findOne({name:{$regex:new RegExp(productName,"i")}})
+            if(product)return product
+            else return null
+            
+        } catch (error) {
+            console.log("ocurrio un error: ", error)
+            return null
+        }
+    }
 }

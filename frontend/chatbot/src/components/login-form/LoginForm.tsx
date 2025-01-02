@@ -27,10 +27,11 @@ const LoginForm : React.FC= ()=>{
         else{
             setIsSuccess(true)
             setLoading(false)
+            sessionStorage.setItem("user" ,JSON.stringify(response))
             navigate("/home")
             
         }
-       
+    
           
     }
   

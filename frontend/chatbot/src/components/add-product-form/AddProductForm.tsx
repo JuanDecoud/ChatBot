@@ -60,14 +60,15 @@ const ProductForm: React.FC = ()=>{
     }
 
     return (
-        <form className="row" onSubmit={handleSubmit} >
-            <div className ="col-xxl-8 offset-xxl-2 ">
-                <div className="container-fluid bg-primary p-3 text-white h4 rounded">
-                    Agregar Producto
-                </div>
+
+        <form className="row p-2" onSubmit={handleSubmit} >
+          <div className ="col-xxl-12  mt-1">
+            <div className="container-fluid bg-primary p-3 text-white h4 rounded">
+                Agregar Producto
             </div>
+        </div>
           
-            <div className ="col-xxl-8 offset-xxl-2 mt-1">
+            <div className ="col-xxl-10 offset-xxl-1 mt-4">
                 <div className ="input-group input-group-lg">
                     <span className="input-group-text" style={{width:"150px"}}>Codigo</span>
                     <input type="text" name="code" className=" form-control form-control-lg" value={formData.code} 
@@ -76,7 +77,7 @@ const ProductForm: React.FC = ()=>{
                     />
                 </div>
             </div>
-            <div className ="col-xxl-8 offset-xxl-2 mt-1">
+            <div className ="col-xxl-10 offset-xxl-1 mt-1">
                 <div className ="input-group input-group-lg">
                         <span className="input-group-text" style={{width:"150px"}}>Nombre</span>
                         <input type="text" name="name" className=" form-control form-control-lg" value={formData.name}
@@ -84,7 +85,7 @@ const ProductForm: React.FC = ()=>{
                         placeholder="nombre" required/>
                 </div>
             </div>
-            <div className ="col-xxl-8 offset-xxl-2 mt-1">
+            <div className ="col-xxl-10 offset-xxl-1 mt-1">
                 <div className ="input-group input-group-lg">
                         <span className="input-group-text" style={{width:"150px"}}>Precio</span>
                         <input type="number" name="price" className=" form-control form-control-lg" value={formData.price}
@@ -92,7 +93,7 @@ const ProductForm: React.FC = ()=>{
                         placeholder="precio" required/>
                 </div>
             </div>
-            <div className ="col-xxl-8 offset-xxl-2 mt-1">
+            <div className ="col-xxl-10 offset-xxl-1 mt-1">
                 <div className ="input-group input-group-lg">
                         <span className="input-group-text" style={{width:"150px"}}>Descripción</span>
                         <input type="text" name="description" className=" form-control form-control-lg" value={formData.description} 
@@ -100,7 +101,7 @@ const ProductForm: React.FC = ()=>{
                         placeholder="descripción" required/>
                 </div>
             </div>
-            <div className ="col-xxl-8 offset-xxl-2 mt-2">
+            <div className ="col-xxl-10 offset-xxl-1 mt-2">
                 <div className ="input-group input-group-lg">
                     <LoadingButton text="Confirmar" loading={loading} className="btn btn-primary btn-lg" ></LoadingButton>
                 </div>

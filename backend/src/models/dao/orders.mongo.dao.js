@@ -13,9 +13,9 @@ export default class ProductDao {
         }
     }
 
-    getOrdersByid = async (userId)=>{
+    getOrderByUserId = async (userId)=>{
         try {
-            const newOrders = await orderModel.find({client:userId})
+            const newOrders = await orderModel.find({client:userId}).populate("products.product.productId")
             if(newOrders)return newOrders
             else return null
             

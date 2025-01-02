@@ -5,6 +5,7 @@ import ProductForm from "../../components/add-product-form/AddProductForm";
 import NavBar from "../../shared/nav-bar/navBar";
 import TableProducts from "../../components/table-products/TableProducts";
 import ChatBot from "../../components/chatbot/ChatBot";
+import ShowOrders from "../../components/show-orders/ShowOrders";
 
 const HomePage : React.FC = ()=>{
 
@@ -20,6 +21,7 @@ const HomePage : React.FC = ()=>{
                     <Route path="chatbot" element={<ChatBot/>} ></Route>
                         <Route path="addProduct" element={<ProductForm/>} ></Route>
                         <Route path="showMenu" element={<TableProducts/>} ></Route>
+                        <Route path="showOrders" element={<ShowOrders/>}></Route>
                     </Routes>
                 </div>
             </div>

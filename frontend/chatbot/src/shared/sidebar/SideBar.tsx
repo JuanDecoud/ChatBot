@@ -68,6 +68,25 @@ const SideBar: React.FC = ()=>{
 
             
         </NavLink>
+        <NavLink to="/home/showOrders"
+            className={({isActive})=>
+                isActive
+                ? "list-group-item active bg-primary text-white"
+                :"list-group-item"
+            }
+            >
+                <div className='d-inline-flex justify-content-start w-100 align-items-center'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className=" me-2 bi bi-box2" viewBox="0 0 16 16">
+                        <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3zM7.5 1H3.75L1.5 4h6zm1 0v3h6l-2.25-3zM15 5H1v10h14z"/>
+                    </svg>
+                    <div className='d-flex'>
+                        Mis Pedidos
+                    </div>
+
+                </div>
+
+            
+        </NavLink>
         </ul>
     )
 }

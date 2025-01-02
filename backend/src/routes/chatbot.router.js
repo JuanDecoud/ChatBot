@@ -8,11 +8,14 @@ import services from '../services/services.js'
 chatRouter.post ("/botReponse",async (req,res)=>{
     try {
         const question = req.body;
-  
+        const user = req.session.passport.user
+          /// capturar usuario para asociarlo con la interacción 
+         // con el bot
+        
         const response = await axios.post(
           'http://localhost:5005/webhooks/rest/webhook',
           {
-            sender:"user1",
+            sender:user.id,
             message:question.message
           },
   

@@ -116,4 +116,8 @@ nlu:
       - me gustaría [sushi](producto) de [2](cantidad) y [pasta](producto) de [1](cantidad)
       - ¿puedo pedir [4](cantidad) [pizzas](producto) y [2](cantidad) [hamburguesas](producto)?
       - quiero [sushi](producto), [pasta](producto) y [ensalada](producto) cantidad [3](cantidad)
+      - quiero [tallarines](producto) cantidad [3](cantidad)
+      - ¿ quisiera pedir [tallarines](producto) cantidad [3](cantidad)
+      - quiero [papas fritas](producto) cantidad [3](cantidad)
+      - ¿ quisiera pedir [papas fritas](producto) cantidad [3](cantidad)
       
